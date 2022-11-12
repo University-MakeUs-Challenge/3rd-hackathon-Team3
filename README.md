@@ -15,6 +15,11 @@
 |:------:|:---:|:------:|:---:|
 |[leeeeeyeon](https://github.com/leeeeeyeon)|[inpyu](https://github.com/inpyu)|[kyeong-hyeok](https://github.com/kyeong-hyeok)|[farmJun](https://github.com/farmJun)|
 
+## 시연영상
+<p align="center">
+<img src="https://user-images.githubusercontent.com/97885933/201497494-64f376c0-9e27-4411-8b69-f2acd10d4007.mp4">
+</p>
+
 ## Commit Message
 
 > 커밋태그: 내용 #이슈번호  
