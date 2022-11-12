@@ -20,7 +20,7 @@ class MakeCardThreeFragment : Fragment() {
         val myCardList: ArrayList<MyCardData> = arrayListOf()
 
         myCardList.apply{
-            add(MyCardData(R.drawable.makecardthree_front, R.drawable.makecardthree_back))
+            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
         }
 
         val mycardsAdapter = MyCardsVPAdapter(myCardList)
