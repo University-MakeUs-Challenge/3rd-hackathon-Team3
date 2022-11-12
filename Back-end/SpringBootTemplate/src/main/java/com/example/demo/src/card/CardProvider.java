@@ -26,6 +26,7 @@ public class CardProvider {
             List<GetCardRes> getCardRes = cardDao.getCards();
             return getCardRes;
         } catch (Exception exception) {
+            exception.printStackTrace();
             throw new BaseException(DATABASE_ERROR);
         }
     }
