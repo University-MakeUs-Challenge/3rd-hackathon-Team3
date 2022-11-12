@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:elevation="10dp"
         app:cardCornerRadius="15dp"
-        android:layout_margin="20dp">
+        android:layout_margin="50dp">
 
         <ImageView
             android:id="@+id/img_mycard"
