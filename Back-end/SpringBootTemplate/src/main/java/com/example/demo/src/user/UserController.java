@@ -180,4 +180,11 @@ public class UserController {
             return new BaseResponse<>((exception.getStatus()));
         }
     }
+
+    @ResponseBody
+    @GetMapping("/test")
+    public BaseResponse<String> test() {
+        String result = "테스트";
+        return new BaseResponse<>(result);
+    }
 }
