@@ -136,17 +136,40 @@ public class CardDao {
 
     // 명함정보 변경
     public int updateCard(PatchCardReq patchCardReq) {
-        String updateCardQuery = "update card set name = ?," +
-                "profile_img = ?, intro = ?, card_frond_img = ?," +
-                "card_back_img = ?, age = ?, group = ?, mbti = ?," +
-                "birth = ?, extra_info = ?, updated_at = ?," +
-                "status = ?, is_main = ? , ownder_idx = ?," +
-                "macker_idx = ?, where idx = ? "; // 해당 idx를 만족하는 Card를 해당 내용으로 변경한다.
-        Object[] updateCardParams = new Object[]{patchCardReq.getName(), patchCardReq.getProfile_img(),
-                patchCardReq.getIntro(),patchCardReq.getCard_front_img(), patchCardReq.getCard_back_img(),
-                patchCardReq.getAge(),patchCardReq.getGroup(),patchCardReq.getMbti(),patchCardReq.getBirth(),
-                patchCardReq.getExtra_info(),patchCardReq.getUpdated_at(),patchCardReq.getStatus(),
-                patchCardReq.getIs_main(),patchCardReq.getOwner_idx(),patchCardReq.getMaker_idx()}; // 주입될 값들(nickname, userIdx) 순
+        String updateCardQuery = "update card set " +
+                "`name` = ?," +
+                "profile_img = ?, " +
+                "intro = ?, " +
+                "card_front_img = ?," +
+                "card_back_img = ?, " +
+                "age = ?, " +
+                "`group` = ?, " +
+                "mbti = ?," +
+                "birth = ?, " +
+                "extra_info = ?, " +
+                "updated_at = ?," +
+                "`status` = ?, " +
+                "is_main = ?, " +
+                "owner_idx = ?," +
+                "maker_idx = ? " +
+                "where idx = ?"; // 해당 idx를 만족하는 Card를 해당 내용으로 변경한다.
+        Object[] updateCardParams = new Object[]{
+                patchCardReq.getName(),
+                patchCardReq.getProfile_img(),
+                patchCardReq.getIntro(),
+                patchCardReq.getCard_front_img(),
+                patchCardReq.getCard_back_img(),
+                patchCardReq.getAge(),
+                patchCardReq.getGroup(),
+                patchCardReq.getMbti(),
+                patchCardReq.getBirth(),
+                patchCardReq.getExtra_info(),
+                patchCardReq.getUpdated_at(),
+                patchCardReq.getStatus(),
+                patchCardReq.getIs_main(),
+                patchCardReq.getOwner_idx(),
+                patchCardReq.getMaker_idx(),
+                patchCardReq.getIdx()}; // 주입될 값들(nickname, userIdx) 순
 
         return this.jdbcTemplate.update(updateCardQuery, updateCardParams); // 대응시켜 매핑시켜 쿼리 요청(생성했으면 1, 실패했으면 0)
     }

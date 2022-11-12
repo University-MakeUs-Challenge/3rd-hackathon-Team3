@@ -2,19 +2,23 @@ package com.example.demo.src.card;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
+
 import com.example.demo.src.card.model.Card;
-import com.example.demo.src.card.model.GetCardReq;
+
 import com.example.demo.src.card.model.GetCardRes;
 import com.example.demo.src.card.model.PatchCardReq;
 import com.example.demo.src.card.model.PostCardReq;
 import com.example.demo.src.card.model.PostCardRes;
 
-import com.fasterxml.jackson.databind.ser.Serializers.Base;
+
 import java.util.List;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable.BinaryOp.Mul;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.time.DayOfWeek;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cards")
@@ -72,6 +76,7 @@ public class CardController {
             PostCardRes postCardRes = cardService.createCard(cards, postCardReq);
             return new BaseResponse<>(postCardRes);
         } catch (BaseException exception) {
+            exception.printStackTrace();
             return new BaseResponse<>((exception.getStatus()));
         }
     }
@@ -84,17 +89,29 @@ public class CardController {
     @PatchMapping("/{idx}")
     public BaseResponse<String> updateCard(@PathVariable("idx") int idx, @RequestBody Card card) {
         try {
-            PatchCardReq patchCardReq = new PatchCardReq(idx, card.getName(),
-                    card.getProfile_img(),card.getIntro(),card.getCard_front_img(),
-                    card.getCard_back_img(),card.getAge(),card.getGroup(),
-                    card.getMbti(), card.getBirth(),card.getExtra_info(),
-                    card.getUpdated_at(), card.getStatus(), card.getIs_main(),
-                    card.getOwner_idx(), card.getMaker_idx());
+            PatchCardReq patchCardReq = new PatchCardReq(
+                    card.getName(),
+                    card.getProfile_img(),
+                    card.getIntro(),
+                    card.getCard_front_img(),
+                    card.getCard_back_img(),
+                    card.getAge(),
+                    card.getGroup(),
+                    card.getMbti(),
+                    card.getBirth(),
+                    card.getExtra_info(),
+                    card.getUpdated_at(),
+                    card.getStatus(),
+                    card.getIs_main(),
+                    card.getOwner_idx(),
+                    card.getMaker_idx(),
+                    idx);
             cardService.updateCard(patchCardReq);
 
             String result = "명함 정보가 수정되었습니다.";
             return new BaseResponse<>(result);
         } catch (BaseException exception) {
+            exception.printStackTrace();
             return new BaseResponse<>((exception.getStatus()));
         }
     }

@@ -22,9 +22,18 @@ class HomeFragment : Fragment() {
 
         myCardList.apply{
             add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
-            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
-            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
-            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
+            add(MyCardData(R.drawable.card2_front, R.drawable.card2_back))
+            add(MyCardData(R.drawable.card3_front, R.drawable.card3_back))
+            add(MyCardData(R.drawable.card4_front, R.drawable.card4_back))
+            add(MyCardData(R.drawable.card5_front, R.drawable.card5_back))
+            add(MyCardData(R.drawable.card6_front, R.drawable.card6_back))
+            add(MyCardData(R.drawable.card7_front, R.drawable.card7_back))
+            add(MyCardData(R.drawable.card8_front, R.drawable.card8_back))
+            add(MyCardData(R.drawable.card9_front, R.drawable.card9_back))
+            add(MyCardData(R.drawable.card10_front, R.drawable.card10_back))
+            add(MyCardData(R.drawable.card11_front, R.drawable.card11_back))
+            add(MyCardData(R.drawable.card12_front, R.drawable.card12_back))
+            add(MyCardData(R.drawable.card13_front, R.drawable.card13_back))
         }
 
         val mycardsAdapter = MyCardsVPAdapter(myCardList)

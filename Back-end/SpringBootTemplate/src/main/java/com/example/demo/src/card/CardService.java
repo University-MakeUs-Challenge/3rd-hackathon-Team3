@@ -59,6 +59,7 @@ public class CardService {
                 throw new BaseException(MODIFY_FAIL_USERNAME);
             }
         } catch (Exception exception) { // DB에 이상이 있는 경우 에러 메시지를 보냅니다.
+            exception.printStackTrace();
             throw new BaseException(DATABASE_ERROR);
         }
     }
