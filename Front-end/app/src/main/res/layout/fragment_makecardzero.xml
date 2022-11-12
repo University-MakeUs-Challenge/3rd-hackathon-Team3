@@ -10,7 +10,7 @@
         android:id="@+id/zero_intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="mm님의\n개성적인 명함을 제작해 보세요!"
+        android:text="명명이 님의\n개성적인 명함을 제작해 보세요!"
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         />
