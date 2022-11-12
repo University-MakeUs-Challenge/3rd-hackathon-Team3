@@ -12,7 +12,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class PatchCardReq {
 
-    private int idx;
     private String name;
     private String profile_img;
     private String intro; // 이미지 방식 찾기 - TEXT도 string으로 처리.
@@ -28,5 +27,5 @@ public class PatchCardReq {
     private int is_main;
     private int owner_idx;
     private int maker_idx;
-
+    private int idx;
 }

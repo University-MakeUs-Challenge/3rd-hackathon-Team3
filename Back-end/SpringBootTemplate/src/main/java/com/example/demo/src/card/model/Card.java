@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter // 해당 클래스에 대한 설정자 생성
 @AllArgsConstructor
 public class Card {
-    private int idx;
+
     private String name;
     private String profile_img;
     private String intro; // 이미지 방식 찾기 - TEXT도 string으로 처리.
@@ -23,11 +23,11 @@ public class Card {
     private String mbti;
     private Date birth;
     private String extra_info;
-    private Timestamp created_at;
     private Timestamp updated_at;
     private String status;
     private int is_main;
     private int owner_idx;
     private int maker_idx;
+    private int idx;
 
 }
