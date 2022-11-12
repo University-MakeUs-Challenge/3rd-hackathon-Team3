@@ -17,7 +17,6 @@
         app:cardCornerRadius="15dp"
         android:layout_margin="20dp">
 
-
         <EditText
             android:id="@+id/etUni"
             android:layout_width="180dp"
@@ -83,5 +82,13 @@
             android:scrollbars="vertical"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
+
     </androidx.cardview.widget.CardView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="저장하기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

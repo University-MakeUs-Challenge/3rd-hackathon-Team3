@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 import static com.example.demo.config.BaseResponseStatus.*;
+import static com.example.demo.config.BaseResponseStatus.POST_USERS_EXISTS_NICKNAME;
 
 /**
  * Service란?
@@ -21,7 +22,7 @@ import static com.example.demo.config.BaseResponseStatus.*;
  * dao를 호출하여 DB CRUD를 처리 후 Controller로 반환
  */
 @Service    // [Business Layer에서 Service를 명시하기 위해서 사용] 비즈니스 로직이나 respository layer 호출하는 함수에 사용된다.
-            // [Business Layer]는 컨트롤러와 데이터 베이스를 연결
+// [Business Layer]는 컨트롤러와 데이터 베이스를 연결
 public class UserService {
     final Logger logger = LoggerFactory.getLogger(this.getClass()); // Log 처리부분: Log를 기록하기 위해 필요한 함수입니다.
 
@@ -42,8 +43,8 @@ public class UserService {
     // 회원가입(POST)
     public PostUserRes createUser(PostUserReq postUserReq) throws BaseException {
         // 중복 확인: 해당 이메일을 가진 유저가 있는지 확인합니다. 중복될 경우, 에러 메시지를 보냅니다.
-        if (userProvider.checkEmail(postUserReq.getEmail()) == 1) {
-            throw new BaseException(POST_USERS_EXISTS_EMAIL);
+        if (userProvider.checkNickname(postUserReq.getNickname()) == 1) {
+            throw new BaseException(POST_USERS_EXISTS_NICKNAME);
         }
         String pwd;
         try {
