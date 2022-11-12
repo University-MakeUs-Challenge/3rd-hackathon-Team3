@@ -1,10 +1,7 @@
 package com.example.demo.src.user.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.*;
 
 
 @Getter // 해당 클래스에 대한 접근자 생성
@@ -20,6 +17,5 @@ import lombok.Setter;
 public class GetUserRes {
     private int userIdx;
     private String nickname;
-    private String email;
-    private String password;
+    private String status;
 }
