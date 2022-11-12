@@ -22,7 +22,7 @@
             android:id="@+id/imageView"
             android:layout_width="144dp"
             android:layout_height="144dp"
-            app:srcCompat="@drawable/mickey"
+            app:srcCompat="@drawable/myungmyung_profile"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
         />
