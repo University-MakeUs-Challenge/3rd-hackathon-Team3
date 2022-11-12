@@ -36,9 +36,9 @@ class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Ada
         //}
     }
 
-    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.itemClickListener = onItemClickListener
-    }
+//    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+//        this.itemClickListener = onItemClickListener
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val viewBinding =
@@ -50,16 +50,19 @@ class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Ada
         holder.bind(position)
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView?.context, CardDetailActivity::class.java)
+            intent.putExtra("front", dataList[position].front)
+            intent.putExtra("back", dataList[position].back)
+            intent.putExtra("name", dataList[position].name)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
     }
 
     override fun getItemCount(): Int = dataList.size
 
-    fun setItemClickListener(onItemClickListener: Any) {
-        this.itemClickListener = onItemClickListener as AdapterView.OnItemClickListener
-    }
-    private lateinit var itemClickListener : AdapterView.OnItemClickListener
+//    fun setItemClickListener(onItemClickListener: Any) {
+//        this.itemClickListener = onItemClickListener as AdapterView.OnItemClickListener
+//    }
+//    private lateinit var itemClickListener : AdapterView.OnItemClickListener
 
 }
 /*

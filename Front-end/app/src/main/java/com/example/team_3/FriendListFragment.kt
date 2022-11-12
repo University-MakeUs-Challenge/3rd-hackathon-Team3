@@ -25,7 +25,7 @@ class FriendListFragment : Fragment() {
 
 
         friendList.apply{
-            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
+            add(Friend(R.drawable.sample, R.drawable.eiffel, "aera"))
             add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
             add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
             add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
@@ -48,33 +48,33 @@ class FriendListFragment : Fragment() {
 
 
 
-        friendAdapter.setItemClickListener(object: friendRVAdapter.OnItemClickListener{
-            fun onClick(v: View, data:Friend, position: Int) {
-                // 클릭 시 이벤트 작성
-//                Intent(this@FriendListFragment).apply{
-   //                 putExtra("name",name)
- //                   putExtra("front",front)
+//        friendAdapter.setItemClickListener(object: friendRVAdapter.OnItemClickListener{
+//            fun onClick(v: View, data:Friend, position: Int) {
+//                // 클릭 시 이벤트 작성
+////                Intent(this@FriendListFragment).apply{
+//   //                 putExtra("name",name)
+// //                   putExtra("front",front)
+//
+////                }
+//
+//                Toast.makeText(context,
+//                    "${friendList[position].name}의 명함입니다.}",
+//                    Toast.LENGTH_SHORT).show()
+//            }
 
-//                }
-
-                Toast.makeText(context,
-                    "${friendList[position].name}의 명함입니다.}",
-                    Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onItemClick(v: View, data: Friend, position: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                TODO("Not yet implemented")
-            }
-        })
+//            override fun onItemClick(v: View, data: Friend, position: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onItemClick(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                TODO("Not yet implemented")
+//            }
+//        })
 /*
         profileAdapter.setOnItemClickListener(object : ProfileAdapter.OnItemClickListener{
             override fun onItemClick(v: View, data: ProfileData, pos : Int) {
