@@ -16,118 +16,73 @@
         android:elevation="10dp"
         app:cardCornerRadius="15dp"
         android:layout_margin="20dp">
-        <RelativeLayout
-            android:id="@+id/RLmbti"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            >
-            <TextView
-                android:id="@+id/TVmbti"
-                android:layout_width="33dp"
-                android:layout_height="20dp"
-                android:text="MBTI"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="4dp"
-                />
-            <EditText
-                android:id="@+id/EVmbti"
-                android:layout_toRightOf="@+id/TVmbti"
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/RLbirth"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
-            >
-            <TextView
-                android:id="@+id/TVbirth"
-                android:layout_width="33dp"
-                android:layout_height="20dp"
-                android:text="생일"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="4dp"
-                />
-            <EditText
-                android:id="@+id/EVbirth"
-                android:layout_toRightOf="@+id/TVbirth"
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/RLbelong"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="162dp"
-            >
-            <TextView
-                android:id="@+id/TVbelong"
-                android:layout_width="33dp"
-                android:layout_height="20dp"
-                android:text="소속"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="4dp"
-                />
-            <EditText
-                android:id="@+id/EVbelong"
-                android:layout_toRightOf="@+id/TVbelong"
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/RLhabit"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
-            >
-            <TextView
-                android:id="@+id/TVhabit"
-                android:layout_width="33dp"
-                android:layout_height="20dp"
-                android:text="취미"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="4dp"
-                />
-            <EditText
-                android:id="@+id/EVhabit"
-                android:layout_toRightOf="@+id/TVhabit"
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:background="@color/white"/>
-        </RelativeLayout>
-        <TextView
-            android:id="@+id/TVintro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="다양한 나의 소개 정보"
-            android:layout_marginTop="281dp"
-            android:layout_marginLeft="16dp"
-            />
+
         <EditText
-            android:layout_width="218dp"
-            android:layout_height="87dp"
-            android:background="@color/white"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="309dp"
+            android:id="@+id/etUni"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="90dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/layout_et"
+            android:ems="10"
+            android:hint="소속(ex.회사,대학교)"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        <EditText
+            android:id="@+id/etBirth"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="130dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/layout_et"
+            android:ems="10"
+            android:hint="생년월일"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        <EditText
+            android:id="@+id/etHobby"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="170dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/layout_et"
+            android:ems="10"
+            android:hint="취미/특기"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        <EditText
+            android:id="@+id/etMbti"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="210dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/layout_et"
+            android:ems="10"
+            android:hint="MBTI"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        <EditText
+            android:id="@+id/etMore"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="270dp"
+            android:padding="10dp"
+            android:background="@drawable/layout_et"
+            android:gravity="top"
+            android:hint="다양한 나의 소개 정보를 입력해보세요!"
             android:inputType="textMultiLine"
             android:lines="5"
-            android:minLines="1"
             android:maxLines="5"
+            android:minLines="3"
             android:scrollbars="vertical"
-            />
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+
     </androidx.cardview.widget.CardView>
     <Button
         android:layout_width="match_parent"
