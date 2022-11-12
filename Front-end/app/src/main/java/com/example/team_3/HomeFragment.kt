@@ -1,5 +1,6 @@
 package com.example.team_3
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,12 +17,14 @@ class HomeFragment : Fragment() {
     ): View {
         viewBinding = FragmentHomeBinding.inflate(layoutInflater)
 
-        val myCardsArray = arrayListOf<Int>(
-            R.drawable.eiffel,
-            R.drawable.mickey,
-        )
+        val myCardList: ArrayList<MyCardData> = arrayListOf()
 
-        val mycardsAdapter = MyCardsVPAdapter(myCardsArray)
+        myCardList.apply{
+            add(MyCardData(R.drawable.eiffel, R.drawable.mickey))
+            add(MyCardData(R.drawable.merci, R.drawable.bookshop))
+        }
+
+        val mycardsAdapter = MyCardsVPAdapter(myCardList)
         viewBinding.vpMycards.adapter = mycardsAdapter
 
         return viewBinding.root
