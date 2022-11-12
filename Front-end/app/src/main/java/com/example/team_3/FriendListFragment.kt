@@ -25,18 +25,19 @@ class FriendListFragment : Fragment() {
 
 
         friendList.apply{
-            add(Friend(R.drawable.sample, R.drawable.eiffel, "aera"))
-            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
-            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
-            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
-            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
-            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
-            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
-            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
-            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
-            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
-            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
-            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
+            add(Friend(R.drawable.card1_front, R.drawable.card1_back, "명명이"))
+            add(Friend(R.drawable.card2_front, R.drawable.card2_back, "애라"))
+            add(Friend(R.drawable.card3_front, R.drawable.card3_back, "찹도"))
+            add(Friend(R.drawable.card4_front, R.drawable.card4_back, "에이치"))
+            add(Friend(R.drawable.card5_front, R.drawable.card5_back, "에디"))
+            add(Friend(R.drawable.card6_front, R.drawable.card6_back, "제이"))
+            add(Friend(R.drawable.card7_front, R.drawable.card7_back, "잉퓨"))
+            add(Friend(R.drawable.card8_front, R.drawable.card8_back, "이안"))
+            add(Friend(R.drawable.card9_front, R.drawable.card9_back, "준"))
+            add(Friend(R.drawable.card10_front, R.drawable.card10_back, "바켠"))
+            add(Friend(R.drawable.card11_front, R.drawable.card11_back, "니니"))
+            add(Friend(R.drawable.card12_front, R.drawable.card12_back, "명명이"))
+            add(Friend(R.drawable.card13_front, R.drawable.card13_back, "명명이"))
         }
 
         val friendAdapter = friendRVAdapter(friendList)
