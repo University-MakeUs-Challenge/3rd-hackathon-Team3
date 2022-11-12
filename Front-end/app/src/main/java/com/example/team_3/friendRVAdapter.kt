@@ -17,6 +17,7 @@ class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Ada
         RecyclerView.ViewHolder(viewBinding.root) {
 
         fun bind(position: Int) {
+            viewBinding.txFriendcard.setText(dataList[position].name)
             viewBinding.imgFricard.setImageResource(dataList[position].front)
             itemView.setOnClickListener {
                 Log.d("Click", "success")
