@@ -25,7 +25,6 @@ class FriendListFragment : Fragment() {
 
 
         friendList.apply{
-            add(Friend(R.drawable.card1_front, R.drawable.card1_back, "명명이"))
             add(Friend(R.drawable.card2_front, R.drawable.card2_back, "애라"))
             add(Friend(R.drawable.card3_front, R.drawable.card3_back, "찹도"))
             add(Friend(R.drawable.card4_front, R.drawable.card4_back, "에이치"))
