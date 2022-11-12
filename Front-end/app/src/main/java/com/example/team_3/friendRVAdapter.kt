@@ -1,19 +1,32 @@
 package com.example.team_3
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team_3.databinding.ItemFriendcardBinding
 
 class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Adapter<friendRVAdapter.ViewHolder>() {
     inner class ViewHolder(private val viewBinding: ItemFriendcardBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
+
         fun bind(position: Int) {
             viewBinding.imgFricard.setImageResource(dataList[position].front)
         }
+    }
+
+    interface OnItemClickListener : AdapterView.OnItemClickListener {
+        //fun onClick(v: View, position: Int)
+        fun onItemClick(v:View,data:Friend,position: Int)
+        //override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+          //  TODO("Not yet implemented")
+        //}
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,4 +40,40 @@ class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Ada
     }
 
     override fun getItemCount(): Int = dataList.size
+
+    fun setItemClickListener(onItemClickListener: Any) {
+        this.itemClickListener = onItemClickListener as AdapterView.OnItemClickListener
+    }
+    private lateinit var itemClickListener : AdapterView.OnItemClickListener
+
 }
+/*
+class myAdapter(val listener : OnItemClickListener) :  RecyclerView.Adapter<friendRVAdapter.ViewHolder>() {
+    interface OnItemClickListener {
+        fun onItemClick(v:View, position: Int)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        holder.front.setOnClickListener {
+            listener.onItemClick(holder.itemView, position)
+        }
+    }
+}*/
+
+/*
+public class friendRVAdapter extends RecyclerView.Adapter<PhRecyclerViewHolder> {
+
+    @Override
+    public PhRecyclerViewHolder onCreateViewHolder(ViewGroup a_viewGroup, int a_viewType) {
+        View view = LayoutInflater.from(a_viewGroup.getContext()).inflate(R.layout.content_recycler_item, a_viewGroup, false);
+        return new PhRecyclerViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(PhRecyclerViewHolder a_viewHolder, int a_position) {
+        final PhRecyclerItem item = mItemList.get(a_position);
+
+        a_viewHolder.ivIcon.setImageResource(item.getImageResId());
+        a_viewHolder.tvName.setText(item.getName());
+    }
+*/
