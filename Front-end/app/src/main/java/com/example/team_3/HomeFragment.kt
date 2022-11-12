@@ -21,10 +21,10 @@ class HomeFragment : Fragment() {
         val myCardList: ArrayList<MyCardData> = arrayListOf()
 
         myCardList.apply{
-            add(MyCardData(R.drawable.eiffel, R.drawable.mickey))
-            add(MyCardData(R.drawable.merci, R.drawable.bookshop))
-            add(MyCardData(R.drawable.eiffel, R.drawable.mickey))
-            add(MyCardData(R.drawable.merci, R.drawable.bookshop))
+            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
+            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
+            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
+            add(MyCardData(R.drawable.card1_front, R.drawable.card1_back))
         }
 
         val mycardsAdapter = MyCardsVPAdapter(myCardList)
