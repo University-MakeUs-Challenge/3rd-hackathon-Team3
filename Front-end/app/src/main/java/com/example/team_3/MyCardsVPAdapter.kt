@@ -21,13 +21,13 @@ class MyCardsVPAdapter(private val dataList: ArrayList<MyCardData>): RecyclerVie
 
     override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
         holder.bind(dataList[position].front)
-        var front = true
+        var isfront = true
         holder.itemView.setOnClickListener {
-            if(front){
-                front = false
+            if(isfront){
+                isfront = false
                 holder.bind(dataList[position].back)
             }else {
-                front = true
+                isfront = true
                 holder.bind(dataList[position].front)
             }
         }
