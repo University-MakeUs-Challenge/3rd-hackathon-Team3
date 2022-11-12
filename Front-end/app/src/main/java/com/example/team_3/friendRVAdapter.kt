@@ -1,10 +1,14 @@
 package com.example.team_3
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team_3.databinding.ItemFriendcardBinding
 
@@ -14,6 +18,13 @@ class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Ada
 
         fun bind(position: Int) {
             viewBinding.imgFricard.setImageResource(dataList[position].front)
+            itemView.setOnClickListener {
+                Log.d("Click", "success")
+//                Toast.makeText(this,  "${dataList[position].name}의 명함입니다.}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@friendRVAdapter,
+//                    "${dataList[position].name}의 명함입니다.}",
+//                    Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -37,6 +48,10 @@ class friendRVAdapter(private val dataList: ArrayList<Friend>): RecyclerView.Ada
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(position)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView?.context, CardDetailActivity::class.java)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
+        }
     }
 
     override fun getItemCount(): Int = dataList.size
