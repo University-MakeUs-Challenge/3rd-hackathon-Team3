@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="300dp"
+            android:layout_width="200dp"
             android:layout_height="23dp"
             android:layout_weight="1"
             android:text="친구찾기" />
@@ -29,8 +29,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_search_24"
-            android:text="B" />
+            android:src="@drawable/ic_baseline_search_24" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
