@@ -90,5 +90,6 @@
         android:text="저장하기"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#00D282"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
