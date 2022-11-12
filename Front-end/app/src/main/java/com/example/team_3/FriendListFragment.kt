@@ -27,6 +27,12 @@ class FriendListFragment : Fragment() {
             add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
             add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
             add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
+            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
+            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
+            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
+            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
+            add(Friend(R.drawable.sample, R.drawable.sample, "aera"))
+            add(Friend(R.drawable.sample2, R.drawable.sample, "eddy"))
         }
 
         val friendAdapter = friendRVAdapter(friendList)
