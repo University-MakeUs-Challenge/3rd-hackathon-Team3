@@ -16,10 +16,10 @@ import static com.example.demo.config.BaseResponseStatus.*;
 import static com.example.demo.utils.ValidationRegex.isRegexEmail;
 
 @RestController // Rest API 또는 WebAPI를 개발하기 위한 어노테이션. @Controller + @ResponseBody 를 합친것.
-                // @Controller      [Presentation Layer에서 Contoller를 명시하기 위해 사용]
-                //  [Presentation Layer?] 클라이언트와 최초로 만나는 곳으로 데이터 입출력이 발생하는 곳
-                //  Web MVC 코드에 사용되는 어노테이션. @RequestMapping 어노테이션을 해당 어노테이션 밑에서만 사용할 수 있다.
-                // @ResponseBody    모든 method의 return object를 적절한 형태로 변환 후, HTTP Response Body에 담아 반환.
+// @Controller      [Presentation Layer에서 Contoller를 명시하기 위해 사용]
+//  [Presentation Layer?] 클라이언트와 최초로 만나는 곳으로 데이터 입출력이 발생하는 곳
+//  Web MVC 코드에 사용되는 어노테이션. @RequestMapping 어노테이션을 해당 어노테이션 밑에서만 사용할 수 있다.
+// @ResponseBody    모든 method의 return object를 적절한 형태로 변환 후, HTTP Response Body에 담아 반환.
 @RequestMapping("/app/users")
 // method가 어떤 HTTP 요청을 처리할 것인가를 작성한다.
 // 요청에 대해 어떤 Controller, 어떤 메소드가 처리할지를 맵핑하기 위한 어노테이션
@@ -62,13 +62,13 @@ public class UserController {
     public BaseResponse<PostUserRes> createUser(@RequestBody PostUserReq postUserReq) {
         //  @RequestBody란, 클라이언트가 전송하는 HTTP Request Body(우리는 JSON으로 통신하니, 이 경우 body는 JSON)를 자바 객체로 매핑시켜주는 어노테이션
         // TODO: email 관련한 짧은 validation 예시입니다. 그 외 더 부가적으로 추가해주세요!
-        // email에 값이 존재하는지, 빈 값으로 요청하지는 않았는지 검사합니다. 빈값으로 요청했다면 에러 메시지를 보냅니다.
-        if (postUserReq.getEmail() == null) {
-            return new BaseResponse<>(POST_USERS_EMPTY_EMAIL);
+        // 닉네임에 값이 존재하는지, 빈 값으로 요청하지는 않았는지 검사합니다. 빈값으로 요청했다면 에러 메시지를 보냅니다.
+        if (postUserReq.getNickname() == null) {
+            return new BaseResponse<>(POST_USERS_EMPTY_NICKNAME);
         }
-        //이메일 정규표현: 입력받은 이메일이 email@domain.xxx와 같은 형식인지 검사합니다. 형식이 올바르지 않다면 에러 메시지를 보냅니다.
-        if (!isRegexEmail(postUserReq.getEmail())) {
-            return new BaseResponse<>(POST_USERS_INVALID_EMAIL);
+        //패스워드에 값이 존재하는지, 빈 값으로 요청하지는 않았는지 검사합니다. 빈값으로 요청했다면 에러 메시지를 보냅니다.
+        if (postUserReq.getPassword() == null) {
+            return new BaseResponse<>(POST_USERS_EMPTY_PASSWORD);
         }
         try {
             PostUserRes postUserRes = userService.createUser(postUserReq);
@@ -131,7 +131,7 @@ public class UserController {
 
 
 
-    /**
+     /**
      * 회원 1명 조회 API
      * [GET] /users/:userIdx
      */
@@ -161,15 +161,15 @@ public class UserController {
     public BaseResponse<String> modifyUserName(@PathVariable("userIdx") int userIdx, @RequestBody User user) {
         try {
 /**
-  *********** 해당 부분은 7주차 - JWT 수업 후 주석해체 해주세요!  ****************
-            //jwt에서 idx 추출.
-            int userIdxByJwt = jwtService.getUserIdx();
-            //userIdx와 접근한 유저가 같은지 확인
-            if(userIdx != userIdxByJwt){
-                return new BaseResponse<>(INVALID_USER_JWT);
-            }
-            //같다면 유저네임 변경
-  **************************************************************************
+ *********** 해당 부분은 7주차 - JWT 수업 후 주석해체 해주세요!  ****************
+ //jwt에서 idx 추출.
+ int userIdxByJwt = jwtService.getUserIdx();
+ //userIdx와 접근한 유저가 같은지 확인
+ if(userIdx != userIdxByJwt){
+ return new BaseResponse<>(INVALID_USER_JWT);
+ }
+ //같다면 유저네임 변경
+ **************************************************************************
  */
             PatchUserReq patchUserReq = new PatchUserReq(userIdx, user.getNickname());
             userService.modifyUserName(patchUserReq);
@@ -179,5 +179,12 @@ public class UserController {
         } catch (BaseException exception) {
             return new BaseResponse<>((exception.getStatus()));
         }
+    }
+
+    @ResponseBody
+    @GetMapping("/test")
+    public BaseResponse<String> test() {
+        String result = "테스트";
+        return new BaseResponse<>(result);
     }
 }

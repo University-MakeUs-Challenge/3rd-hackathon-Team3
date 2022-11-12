@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_mycards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@id/btn_save"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="30dp"
+        android:text="저장하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/btn_radius"
+        />
+
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="240dp"-->
+<!--        android:layout_height="434dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:cardBackgroundColor="@color/white"-->
+<!--        android:elevation="10dp"-->
+<!--        app:cardCornerRadius="15dp"-->
+<!--        android:layout_margin="20dp">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etUni"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="90dp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:background="@drawable/layout_et"-->
+<!--            android:ems="10"-->
+<!--            android:hint="소속(ex.회사,대학교)"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/etBirth"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="130dp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:background="@drawable/layout_et"-->
+<!--            android:ems="10"-->
+<!--            android:hint="생년월일"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/etHobby"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="170dp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:background="@drawable/layout_et"-->
+<!--            android:ems="10"-->
+<!--            android:hint="취미/특기"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/etMbti"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="210dp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:background="@drawable/layout_et"-->
+<!--            android:ems="10"-->
+<!--            android:hint="MBTI"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/etMore"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="270dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="@drawable/layout_et"-->
+<!--            android:gravity="top"-->
+<!--            android:hint="다양한 나의 소개 정보를 입력해보세요!"-->
+<!--            android:inputType="textMultiLine"-->
+<!--            android:lines="5"-->
+<!--            android:maxLines="5"-->
+<!--            android:minLines="3"-->
+<!--            android:scrollbars="vertical"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small" />-->
+
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

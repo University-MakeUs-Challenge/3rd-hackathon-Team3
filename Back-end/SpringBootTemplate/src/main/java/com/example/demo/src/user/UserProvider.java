@@ -14,7 +14,7 @@ import static com.example.demo.config.BaseResponseStatus.*;
 
 //Provider : Read의 비즈니스 로직 처리
 @Service    // [Business Layer에서 Service를 명시하기 위해서 사용] 비즈니스 로직이나 respository layer 호출하는 함수에 사용된다.
-            // [Business Layer]는 컨트롤러와 데이터 베이스를 연결
+// [Business Layer]는 컨트롤러와 데이터 베이스를 연결
 /**
  * Provider란?
  * Controller에 의해 호출되어 실제 비즈니스 로직과 트랜잭션을 처리: Read의 비즈니스 로직 처리
@@ -63,10 +63,10 @@ public class UserProvider {
         }
     }
 
-    // 해당 이메일이 이미 User Table에 존재하는지 확인
-    public int checkEmail(String email) throws BaseException {
+    // 해당 닉네임이 이미 User Table에 존재하는지 확인
+    public int checkNickname(String nickname) throws BaseException {
         try {
-            return userDao.checkEmail(email);
+            return userDao.checkNickname(nickname);
         } catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);
         }
