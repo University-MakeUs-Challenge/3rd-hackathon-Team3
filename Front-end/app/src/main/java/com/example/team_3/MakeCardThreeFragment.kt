@@ -9,11 +9,41 @@ import com.example.team_3.databinding.FragmentMakecardthreeBinding
 
 
 class MakeCardThreeFragment : Fragment() {
+    private lateinit var viewBinding: FragmentMakecardthreeBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return FragmentMakecardthreeBinding.inflate(layoutInflater).root
+        viewBinding = FragmentMakecardthreeBinding.inflate(layoutInflater)
+
+        val myCardList: ArrayList<MyCardData> = arrayListOf()
+
+        myCardList.apply{
+            add(MyCardData(R.drawable.makecardthree_front, R.drawable.makecardthree_back))
+        }
+
+        val mycardsAdapter = MyCardsVPAdapter(myCardList)
+        viewBinding.vpMycards.adapter = mycardsAdapter
+        viewBinding.vpMycards.offscreenPageLimit = 3
+        val pageMargin = resources.getDimensionPixelOffset(R.dimen.pageMargin).toFloat()
+        val pageOffset = resources.getDimensionPixelOffset(R.dimen.offset).toFloat()
+
+        viewBinding.vpMycards.setPageTransformer({page, position ->
+            val myOffset = position * -(2*pageOffset + pageMargin)
+            if(position < -1){
+                page.translationX = -myOffset
+            } else if(position <= 1){
+                val scaleFactor = Math.max(0.7f, 1-Math.abs(position - 0.14285715f))
+                page.translationX = myOffset
+                page.scaleY = scaleFactor
+                page.alpha = scaleFactor
+            } else {
+                page.alpha = 0f
+                page.translationX = myOffset
+            }
+        })
+
+        return viewBinding.root
     }
 }
