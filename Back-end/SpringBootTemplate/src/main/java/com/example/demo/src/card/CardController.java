@@ -2,11 +2,20 @@ package com.example.demo.src.card;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.card.model.*;
 
-import com.example.demo.src.user.model.GetUserRes;
+import com.example.demo.src.card.model.Card;
+
+import com.example.demo.src.card.model.GetCardRes;
+import com.example.demo.src.card.model.PatchCardReq;
+import com.example.demo.src.card.model.PostCardReq;
+import com.example.demo.src.card.model.PostCardRes;
+
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.DayOfWeek;
 import java.util.List;
@@ -27,16 +36,44 @@ public class CardController {
     }
 
     /**
+     * 명함 조회 API
+     * [GET] /cards
+     */
+    @ResponseBody
+    @GetMapping("")
+    public BaseResponse<List<GetCardRes>> getCards() {
+        try {
+            List<GetCardRes> getCardRes = cardProvider.getCards();
+
+            return new BaseResponse<>(getCardRes);
+        } catch (BaseException exception) {
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
+    @ResponseBody
+    @GetMapping("/{cardIdx}")
+    public BaseResponse<GetCardRes> getCard(@PathVariable("cardIdx") int cardIdx) {
+        try {
+            GetCardRes getCardRes = cardProvider.getCard(cardIdx);
+            return new BaseResponse<>(getCardRes);
+        } catch (BaseException exception) {
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
+    /**
      * 명함 생성 API
      * [POST] /cards
      */
     // Body
     @ResponseBody
     @PostMapping("/register")    // POST 방식의 요청을 매핑하기 위한 어노테이션
-    public BaseResponse<PostCardRes> createCard(@RequestBody GetCardReq getCardReq) {
+    public BaseResponse<PostCardRes> createUser(@RequestPart(value = "cards") List<MultipartFile> cards,
+        @RequestPart(value = "dto") PostCardReq postCardReq) {
 
         try {
-            PostCardRes postCardRes = cardService.createCard(getCardReq);
+            PostCardRes postCardRes = cardService.createCard(cards, postCardReq);
             return new BaseResponse<>(postCardRes);
         } catch (BaseException exception) {
             exception.printStackTrace();

@@ -1,13 +1,15 @@
 package com.example.demo.src.card;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.card.model.GetCardReq;
-import com.example.demo.src.card.model.GetCardRes;
 import com.example.demo.src.card.model.PatchCardReq;
+import com.example.demo.src.card.model.PostCardReq;
 import com.example.demo.src.card.model.PostCardRes;
-import com.example.demo.utils.AES128;
+import com.example.demo.src.upload.UploadService;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import static com.example.demo.config.BaseResponseStatus.*;
@@ -17,18 +19,30 @@ public class CardService {
 
     private final CardDao cardDao;
 
+    private final UploadService uploadService;
+
     @Autowired
-    public CardService(CardDao cardDao) {
+    public CardService(CardDao cardDao, UploadService uploadService) {
         this.cardDao = cardDao;
+        this.uploadService = uploadService;
     }
 
     /**
      * 명함 생성
      * */
-    public PostCardRes createCard(GetCardReq getCardReq) throws BaseException {
+    public PostCardRes createCard(List<MultipartFile> cards, PostCardReq postCardReq) throws BaseException {
         try {
-            int cardIdx = cardDao.createCard(getCardReq);
-            return new PostCardRes(cardIdx);
+            List<String> cardUrlList = new ArrayList<>();
+            for (MultipartFile card : cards) {
+                String url = uploadService.upload(card);
+                System.out.println(url);
+                cardUrlList.add(url);
+            }
+            System.out.println(cardUrlList);
+
+//            int cardIdx = cardDao.createCard(cardUrlList, postCardReq);
+            PostCardRes postCardRes = cardDao.createCard(cardUrlList, postCardReq);
+            return new PostCardRes(postCardRes.getIdx(), postCardRes.getCard_front_img(), postCardRes.getCard_back_img());
 
         } catch (Exception exception) { // DB에 이상이 있는 경우 에러 메시지를 보냅니다.
             exception.printStackTrace();

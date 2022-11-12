@@ -3,6 +3,8 @@ package com.example.demo.src.card;
 import com.example.demo.src.card.model.GetCardReq;
 import com.example.demo.src.card.model.GetCardRes;
 import com.example.demo.src.card.model.PatchCardReq;
+import com.example.demo.src.card.model.PostCardReq;
+import com.example.demo.src.card.model.PostCardRes;
 import com.example.demo.src.user.model.GetUserRes;
 import com.example.demo.src.user.model.PatchUserReq;
 import com.example.demo.src.user.model.PostUserReq;
@@ -30,7 +32,7 @@ public class CardDao {
     /**
      * 명함 생성 코드(Create)
      * */
-    public int createCard(GetCardReq getCardReq) {
+    public PostCardRes createCard(List<String> cardUrlList, PostCardReq postCardReq) {
         String createCardQuery = "insert into card" +
                 " (`name`, profile_img, intro, card_front_img, card_back_img," +
                 "age, `group`, mbti, birth, extra_info, created_at," +
@@ -38,32 +40,54 @@ public class CardDao {
                 "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 실행될 동적 쿼리문
 
         Object[] createCardParams = new Object[]{
-                getCardReq.getName(),
-                getCardReq.getProfile_img(),
-                getCardReq.getIntro(),
-                getCardReq.getCard_front_img(),
-                getCardReq.getCard_back_img(),
-                getCardReq.getAge(),
-                getCardReq.getGroup(),
-                getCardReq.getMbti(),
-                getCardReq.getBirth(),
-                getCardReq.getExtra_info(),
-                getCardReq.getCreated_at(),
-                getCardReq.getStatus(),
-                getCardReq.getIs_main(),
-                getCardReq.getOwner_idx(),
-                getCardReq.getMaker_idx()}; // 동적 쿼리의 ?부분에 주입될 값
+                postCardReq.getName(),
+                postCardReq.getProfile_img(),
+                postCardReq.getIntro(),
+                cardUrlList.get(0),
+                cardUrlList.get(1),
+                postCardReq.getAge(),
+                postCardReq.getGroup(),
+                postCardReq.getMbti(),
+                postCardReq.getBirth(),
+                postCardReq.getExtra_info(),
+                postCardReq.getCreated_at(),
+                postCardReq.getStatus(),
+                postCardReq.getIs_main(),
+                postCardReq.getOwner_idx(),
+                postCardReq.getMaker_idx()}; // 동적 쿼리의 ?부분에 주입될 값
         this.jdbcTemplate.update(createCardQuery, createCardParams);
 
         String lastInsertIdQuery = "select last_insert_id()"; // 가장 마지막에 삽입된(생성된) id값은 가져온다.
-        return this.jdbcTemplate.queryForObject(lastInsertIdQuery, int.class); // 해당 쿼리문의 결과 마지막으로 삽인된 유저의 userIdx번호를 반환한다.
+        int lastInsertId = this.jdbcTemplate.queryForObject(lastInsertIdQuery, int.class);
+        System.out.println("여기봐");
+        System.out.println(lastInsertId);
+
+        String getCardInfoQuery = "select idx, card_front_img, card_back_img from card where idx=?;";
+//        String getWalkInfoQuery = "select walkIdx, calorie, distance, pathImageUrl from Walk where walkIdx=? and status='ACTIVE';"
+//        GetWalkInfo getWalkInfo = this.jdbcTemplate.queryForObject(getWalkInfoQuery,
+//            (rs,rowNum) -> new GetWalkInfo(
+//                rs.getInt("walkIdx"),
+//                getWalkTime,
+//                rs.getInt("calorie"),
+//                rs.getDouble("distance"),
+//                footCount,
+//                rs.getString("pathImageUrl")), walkIdx);
+
+        PostCardRes postCardRes = this.jdbcTemplate.queryForObject(getCardInfoQuery,
+            (rs, rowNum) -> new PostCardRes(
+                rs.getInt("idx"),
+                rs.getString("card_front_img"),
+                rs.getString("card_back_img")
+            ), lastInsertId);
+
+        return postCardRes; // 해당 쿼리문의 결과 마지막으로 삽인된 유저의 userIdx번호를 반환한다.
     }
 
     /**
      * Card 테이블에 존재하는 전체 명함들의 정보 조회
      * */
     public List<GetCardRes> getCards() {
-        String getCardsQuery = "select * from Card"; //Card 테이블에 존재하는 모든 명함들의 정보를 조회하는 쿼리
+        String getCardsQuery = "select * from card"; //Card 테이블에 존재하는 모든 명함들의 정보를 조회하는 쿼리
         return this.jdbcTemplate.query(getCardsQuery,
                 (rs, rowNum) -> new GetCardRes(
                         rs.getString("name"),
