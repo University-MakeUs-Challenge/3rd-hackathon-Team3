@@ -1,6 +1,12 @@
 # 3rd-hackathon-Team3
 3기 UMC 해커톤 3팀
 
+
+## 수상
+- 프론트엔드 최우수상
+- 백엔드 우수상
+
+
 ## 참가 인원
 ### 기획자, 디자이너
 |니니 (김유빈)|바켠 (박현진)|
@@ -15,12 +21,11 @@
 |:------:|:---:|:------:|:---:|
 |[leeeeeyeon](https://github.com/leeeeeyeon)|[inpyu](https://github.com/inpyu)|[kyeong-hyeok](https://github.com/kyeong-hyeok)|[farmJun](https://github.com/farmJun)|
 
-## 시연영상
-<p align="center">
-<img src="https://user-images.githubusercontent.com/97885933/201497494-64f376c0-9e27-4411-8b69-f2acd10d4007.mp4">
-</p>
+## [시연](https://user-images.githubusercontent.com/97885933/201497494-64f376c0-9e27-4411-8b69-f2acd10d4007.mp4)
+![KakaoTalk_20221113_072104861](https://user-images.githubusercontent.com/94737714/201526668-3578d940-1188-440c-9ba5-ed4abd2b0180.gif)
 
-## Commit Message
+
+## Commit Message Convention
 
 > 커밋태그: 내용 #이슈번호  
 
