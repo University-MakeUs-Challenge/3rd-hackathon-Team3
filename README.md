@@ -7,7 +7,7 @@
 |:------:|:---:|
 |[ubeeni](https://github.com/ubeeni)|[hyeonjin01](https://github.com/hyeonjin01)|
 ### 프론트엔드
-|애라 (서예빈)|찹도 (민세림)|에이치 (한호정)|에디 (유정)|
+|애라 (서예빈)|찹도 (민세림)|에이치 (한호정)|에디 (유진)|
 |:------:|:---:|:------:|:---:|
 |[bin000527](https://github.com/bin000527)|[anonymous records](https://github.com/anonymousRecords)|[hojeong2747](https://github.com/hojeong2747)|[HI-JIN2](https://github.com/HI-JIN2)|
 ### 백엔드
