@@ -3,9 +3,16 @@
 
 
 ## 수상
-- 프론트엔드 최우수상
-- 백엔드 우수상
+- 🏅프론트엔드 최우수상
+- 🏅백엔드 우수상
 
+## 서비스 소개
+- **명명이** : 함께 만드는 우리의 명함
+- 내가 생각하고 있는 '나'랑 다른 사람이 보는 '내'가 다를 수 있지 않을까?
+- 다양한 방법으로 나를 소개할 수 있는 명함 제작 서비스
+
+## [시연](https://user-images.githubusercontent.com/97885933/201497494-64f376c0-9e27-4411-8b69-f2acd10d4007.mp4)
+![KakaoTalk_20221113_072104861](https://user-images.githubusercontent.com/94737714/201526668-3578d940-1188-440c-9ba5-ed4abd2b0180.gif)
 
 ## 참가 인원
 ### 기획자, 디자이너
@@ -20,10 +27,6 @@
 |제이 (이정연)|잉퓨 (정다연)|이안 (민경혁)|준 (박준영)|
 |:------:|:---:|:------:|:---:|
 |[leeeeeyeon](https://github.com/leeeeeyeon)|[inpyu](https://github.com/inpyu)|[kyeong-hyeok](https://github.com/kyeong-hyeok)|[farmJun](https://github.com/farmJun)|
-
-## [시연](https://user-images.githubusercontent.com/97885933/201497494-64f376c0-9e27-4411-8b69-f2acd10d4007.mp4)
-![KakaoTalk_20221113_072104861](https://user-images.githubusercontent.com/94737714/201526668-3578d940-1188-440c-9ba5-ed4abd2b0180.gif)
-
 
 ## Commit Message Convention
 
